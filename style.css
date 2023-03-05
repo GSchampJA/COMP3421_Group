@@ -1,1 +1,41 @@
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #f2f2f2;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.navBar {
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
+    text-align: center;
+    padding: 14px 16px;
+}
+
+.navBar li {
+    list-style: none;
+}
+
+.navBarHeading a {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #383838;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 14px 16px;
+}
+
+.navBar li a {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #383838;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navBar li a:hover {
+    background-color: #d9d9d9;
+}
 
