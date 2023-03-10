@@ -1,4 +1,4 @@
-nav {
+.nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -14,11 +14,10 @@ nav {
     text-align: center;
     padding: 14px 16px;
 }
-
-.navBar li {
-    list-style: none;
-}
-
+    .navBar li {
+        list-style: none;
+    }
+        
 .navBarHeading a, .navBar li a {
     font-family: Arial, Helvetica, sans-serif;
     color: #383838;
@@ -27,9 +26,10 @@ nav {
     padding: 14px 16px;
 }
 
-.navBar li a:hover {
+.navBar li a[name=pages]:hover {
     background-color: #d9d9d9;
 }
+
 
 .mainContainer {
     display: flex;
@@ -39,22 +39,55 @@ nav {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.sortBar {
+.filterBar {
     background-color: #d9d9d9;
-    display: flex;
-    justify-content: space-around;
-    width: 20%;
+    width: 15%;
     height: 100vh;
+    min-width: 120px;
 }
+
+    .filterBar h4 {
+        text-align: center;
+        text-transform: uppercase;
+
+    }
+
+.filterButtons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    min-width: 100px;
+}
+
+.filter {
+    border: none;
+    outline: none;
+    padding: 12px 16px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+    .filter:hover {
+        background-color: #9f2438;
+        color: white;
+    }
+
+    .filter.active {
+        background-color: #690002;
+        color: white;
+    }
 
 .postSession {
-    background-color: #d09695;
+    background-color: rgba(106,0,2,0.5);
     display: flex;
     justify-content: space-around;
-    width: 80%;
+    width: 85%;
     height: 100vh;
+    position: relative;
 }
 
-.postSession.PolyULife {
 
-}

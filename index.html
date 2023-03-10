@@ -6,30 +6,36 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
-    <nav>
+    <div class="nav">
         <div class="navBarHeading">
             <a href="index.html">PolyU Forum</a>
         </div>
         <ul class="navBar">
-            <li><a href="explore.html">Explore</a></li>
-            <li><a href="setting.html">Setting</a></li>
-            <li><a href="help.html">Help</a></li>
+            <li><a href="explore.html" name="pages">Explore</a></li>
+            <li><a href="setting.html" name="pages">Setting</a></li>
+            <li><a href="help.html" name="pages">Help</a></li>
             <li><a href="login.html"><i class="material-icons">account_circle</i></a></li>
         </ul>
-    </nav>
+    </div>
     <div class="mainContainer">
-        <div class="sortBar">
-            <h4>Sorting Bar</h4>
+        <div class="filterBar">
+            <h4>Filter</h4>
+            <div class="filterButtons">
+                <button class="filter active" onclick="filterSelection('all')">Show all</button>
+                <button class="filter" onclick="filterSelection('faculty')">Most Popular</button>
+                <button class="filter" onclick="filterSelection('popular')">PolyU Life</button>
+                <button class="filter" onclick="filterSelection('polyu')">Faculty News</button>
+            </div>
         </div>
         <div class="postSession">
+            <div class="MostPopular">
+                <h5>Most Popular</h5>
+            </div>
             <div class="PolyULife">
                 <h5>PolyU Life</h5>
             </div>
             <div class="FacultyNews">
                 <h5>Faculty News</h5>
-            </div>
-            <div class="MostPopular">
-                <h5>Most Popular</h5>
             </div>
         </div>
     </div>
