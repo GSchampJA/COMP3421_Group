@@ -15,16 +15,15 @@
 </head>
 
 <body>
-    <nav class="navbar fixed-top navbar-light bg-light">
+    <nav class="navbar fixed-top navbar navbar-custom">
         <a class="navbar-brand" href="index.html">
             <img src="icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
             PolyU Forum
         </a>
         <div class="navBar">
             <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Search posts"><i class="material-icons md-24">search</i></button>
                 <div class="btn-group" role="group">
-                    <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button id="btnGroupDrop1" type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Posts
                     </button>
                     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
@@ -34,33 +33,77 @@
                         <button class="dropdown-item" type="button">Faculty News</button>
                     </div>
                 </div>
-                <a class="btn btn-secondary" href="createPost.html" role="button" data-toggle="tooltip" data-placement="bottom" title="Create post"><i class="material-icons md-24">add_box</i></a>
-                <a class="btn btn-secondary" href="#" role="button"><i class="material-icons md-24">account_circle</i></a>
+                <a class="btn" href="createPost.html" role="button" data-toggle="tooltip" data-placement="bottom" title="Create post"><i class="material-icons md-24">add_box</i></a>
+                <a class="btn" href="#" role="button" data-toggle="tooltip" data-placement="bottom" title="User"><i class="material-icons md-24">account_circle</i></a>
             </div>
         </div>
-</nav>
-    <div class="container-fluid" style="margin-top:85px">
+    </nav>
+    <div class="container-fluid" style="margin-top:90px">
         <div class="row">
             <div class="col-sm-12" id="postSession">
-                <h1>H</h1>
-                <h1>H</h1>
-                <h1>H</h1>
-                <h1>H</h1>
-                <h1>H</h1>
-                <h1>H</h1>
-                <h1>H</h1>
-                <h1>H</h1>
-                <h1>H</h1>
-                <h1>H</h1>
-                <h1>H</h1>
-                <h1>H</h1>
-                <h1>H</h1>
-                <h1>H</h1>
-                <h1>H</h1>
-                <h1>H</h1>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="post-card">
+                            <div class="post-thumbnail">
+                                <img src="dog.jpg">
+                            </div>
+                            <div class="post-content">
+                                <a href="#" class="category-button">PolyU Life</a>
+                                <h3 class="post-title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h3>
+                                <div class="post-author">
+                                    <h5>By: Jane Doe</h5>
+                                    <small>16 March, 2023 - 13:52</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="post-card">
+                            <div class="post-thumbnail">
+                                <img src="dog.jpg">
+                            </div>
+                            <div class="post-content">
+                                <a href="#" class="category-button">PolyU Life</a>
+                                <h3 class="post-title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h3>
+                                <div class="post-author">
+                                    <h5>By: Jane Doe</h5>
+                                    <small>16 March, 2023 - 13:52</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="post-card">
+                            <div class="post-thumbnail">
+                                <img src="dog.jpg">
+                            </div>
+                            <div class="post-content">
+                                <a href="#" class="category-button">PolyU Life</a>
+                                <h3 class="post-title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h3>
+                                <div class="post-author">
+                                    <h5>By: Jane Doe</h5>
+                                    <small>16 March, 2023 - 13:52</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+
     </div>
+    <footer>
+        <div class="footer-links">
+            <a href="https://www38.polyu.edu.hk/eStudent/" target="_blank" data-toggle="tooltip" title="eStudent"><i class="material-icons md-24">key</i></a>
+            <a href="https://learn.polyu.edu.hk/" target="_blank" data-toggle="tooltip" title="LEARN@PolyU"><i class="material-icons md-24">collections_bookmark</i></a>
+            <a href="https://www.lib.polyu.edu.hk/" target="_blank" data-toggle="tooltip" title="Pao Yue-kong Library"><i class="material-icons md-24">local_library</i></a>
+        </div>
+        <div class="footer-copyright">
+            <small>Copyright &copy; COMP3421 PolyU Forum Group</small>
+        </div>
+    </footer>
 
 </body>
 </html>
