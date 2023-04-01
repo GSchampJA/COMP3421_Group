@@ -157,6 +157,9 @@ footer {
 
 
 /* =========signup.php========= */
+.Herelogin:link, .Herelogin:hover {
+    text-decoration: none;
+}
 
 
 

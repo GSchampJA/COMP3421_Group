@@ -1,3 +1,28 @@
+<?php
+// Start the session (if not already started)
+session_start();
+
+// Check if the form has been submitted
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Get the form data
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // Check if the username and password are valid (in this example, just hardcoding a single user)
+    if ($username == 'admin' && $password == 'password') {
+        // Login successful, store the user ID in the session
+        $_SESSION['user_id'] = 1;
+
+        // Redirect to the dashboard page
+        header('Location: dashboard.php');
+        exit;
+    } else {
+        // Login failed, display an error message
+        $error = 'Invalid username or password';
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +39,11 @@
 </head>
 
 <body>
+
+    <?php if (isset($error)): ?>
+        <p><?= $error ?></p>
+    <?php endif ?>
+
     <div class="container-fluid" style="margin-top:100px">
         <div class="postForm">
             <div class="row justify-content-center">
@@ -46,7 +76,7 @@
 
         <div class="row justify-content-center">
             <div class="col-sm-4" style = "text-align: center;">
-                <h6>Or do you have an account already? Log In <a href="login.php">Here</a></h6>
+                <h6>Or do you have an account already? Log In <a class = "Herelogin" href="login.php">Here</a></h6>
             </div>
         </div>
     </div>
