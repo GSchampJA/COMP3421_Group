@@ -3,8 +3,24 @@
 
 <head>
     <title>Login</title>
+    <link rel="stylesheet" type=text/css href="style.css">
 </head>
+<style>
+    body{
+    background: url(background.jpg);
+    background-position: center;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
 
+.h1 {
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 20px;
+}
+</style>
 <body>
     <?php
     // Start the session (if not already started)
@@ -30,7 +46,6 @@
             }
     }
     ?>
-    <link rel="stylesheet" type=text/css href="style.css">
     <div class="loginbox">
         <img src="loginlogo.png" class="icon">
         <h1>Login</h1>
@@ -46,7 +61,7 @@
             <input type="text" id="username" name="username" placeholder="Enter Username" required>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" placeholder="Enter Password" required>
-            <h4> <a href="signup.php"></a> Don't have an account?</h4>
+            <h4> <a href="signup.php">Don't have an account?</a></h4>
 
             <button type="submit">Login</button>
         </form>
