@@ -7,7 +7,7 @@
 </head>
 <style>
     body{
-    background: url(background.jpg);
+    background: url("images/background.jpg");
     background-position: center;
     background-size: cover;
     margin: 0;
@@ -47,7 +47,7 @@
     }
     ?>
     <div class="loginbox">
-        <img src="loginlogo.png" class="icon">
+        <img src="images/loginlogo.png" class="icon">
         <h1>Login</h1>
 
         <?php if (isset($error)): ?>

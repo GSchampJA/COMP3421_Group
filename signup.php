@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="postForm">
             <div class="row justify-content-center">
                 <div class="col-sm-4">
-                    <a href="index.html" id="closeButton"><i class="material-icons md-24">close</i></a>
+                    <a href="index.php" id="closeButton"><i class="material-icons md-24">close</i></a>
                 </div>
             </div>
             <div class="row justify-content-center">
