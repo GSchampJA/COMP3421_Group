@@ -1,4 +1,5 @@
 <?php
+/*
 // Start the session (if not already started)
 session_start();
 
@@ -21,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $error = 'Invalid username or password';
     }
 }
+*/
 ?>
 
 <!DOCTYPE html>
@@ -39,11 +41,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 
 <body>
-
-    <?php if (isset($error)): ?>
-        <p><?= $error ?></p>
-    <?php endif ?>
-
     <div class="container-fluid" style="margin-top:100px">
         <div class="postForm">
             <div class="row justify-content-center">
@@ -55,20 +52,44 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="col-sm-4" id="createTitle">
                     <h2>Sign up to PolyU Forum~</h2>
                 </div>
+                <?php
+                include 'DBconnection.php';
+
+                if(isset($_POST['signup'])){
+                   $name = mysqli_real_escape_string($conn, $_POST["username"]);
+                   $password = $_POST["password"];
+                   $sql = "SELECT * FROM user WHERE Username = '$name'";
+                   $result = mysqli_query($conn, $sql);
+                   if(mysqli_num_rows($result) > 0){
+                      echo "<p>User already exists!</p>";
+                   }
+                   else{
+                      $findLastRecordSql = "SELECT * FROM user ORDER BY UserID DESC LIMIT 1";
+                      $lastRecord = mysqli_query($conn, $findLastRecordSql);
+                      if ($lastRecord->num_rows > 0) {while($row = $lastRecord->fetch_assoc()) {
+                          $newUserId = $row["UserID"] + 1;
+                      }
+                      $insertSql = "INSERT INTO user VALUES ($newUserId, '$name', '$password')";
+                      mysqli_query($conn,$insertSql);
+                      header("Location:login.php");
+                   }
+                }
+                }
+                ?>
             </div>
             <div class="row justify-content-center">
                 <div class="col-sm-4">
-                    <form action="#.php" class="was-validated">
+                    <form action="signup.php" method="post" class="was-validated">
                         <div class="form-group">
                             <h6>Name:</h6>
-                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Input here..." required>
+                            <input type="text" class="form-control" name="username" placeholder="Input here..." required>
                         </div>
                         <div class="form-group">
                             <h6>Password:</h6>
-                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Input here..." required>
+                            <input type="text" class="form-control" name="password" placeholder="Input here..." required>
                         </div>
                         
-                        <button type="submit" class="btn btn-secondary">Submit</button>
+                        <button type="submit" class="btn btn-secondary" name="signup">Sign up</button>
                     </form>
                 </div>
             </div>
