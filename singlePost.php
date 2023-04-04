@@ -17,8 +17,8 @@
 <body>
     <!--Bootstrap navigation bar-->
     <nav class="navbar fixed-top navbar navbar-custom">
-        <a class="navbar-brand" href="index.html">
-            <img src="icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        <a class="navbar-brand" href="index.php">
+            <img src="images/icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
             PolyU Forum
         </a>
         <div class="navBar">
@@ -34,7 +34,7 @@
                         <button class="dropdown-item" type="button">Faculty News</button>
                     </div>
                 </div>
-                <a class="btn" href="createPost.html" role="button" data-toggle="tooltip" data-placement="bottom" title="Create post"><i class="material-icons md-24">add_box</i></a>
+                <a class="btn" href="createPost.php" role="button" data-toggle="tooltip" data-placement="bottom" title="Create post"><i class="material-icons md-24">add_box</i></a>
                 <a class="btn" href="#" role="button" data-toggle="tooltip" data-placement="bottom" title="User"><i class="material-icons md-24">account_circle</i></a>
             </div>
         </div>
@@ -74,6 +74,6 @@
         </div>
     </footer>
     <!---->
-
+<script src="script.js"></script>
 </body>
 </html>

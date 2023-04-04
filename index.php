@@ -17,8 +17,8 @@
 <body>
     <!--Bootstrap navigation bar-->
     <nav class="navbar fixed-top navbar navbar-custom">
-        <a class="navbar-brand" href="index.html">
-            <img src="icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        <a class="navbar-brand" href="index.php">
+            <img src="images/icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
             PolyU Forum
         </a>
         <div class="navBar">
@@ -34,7 +34,7 @@
                         <button class="dropdown-item" type="button">Faculty News</button>
                     </div>
                 </div>
-                <a class="btn" href="createPost.html" role="button" data-toggle="tooltip" data-placement="bottom" title="Create post"><i class="material-icons md-24">add_box</i></a>
+                <a class="btn" href="createPost.php" role="button" data-toggle="tooltip" data-placement="bottom" title="Create post"><i class="material-icons md-24">add_box</i></a>
                 <a class="btn" href="signup.php" role="button" data-toggle="tooltip" data-placement="bottom" title="User"><i class="material-icons md-24">account_circle</i></a>
             </div>
         </div>
@@ -49,11 +49,11 @@
                     <div class="col-sm-4">
                         <div class="post-card">
                             <div class="post-thumbnail">
-                                <img src="dog.jpg">
+                                <img src="images/dog.jpg">
                             </div>
                             <div class="post-content">
                                 <a href="#" class="category-button">PolyU Life</a>
-                                <h3 class="post-title"><a href="singlePost.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h3>
+                                <h3 class="post-title"><a href="singlePost.php">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h3>
                                 <div class="post-author">
                                     <h5>By: Jane Doe</h5>
                                     <small>16 March, 2023 - 13:52</small>
@@ -65,11 +65,11 @@
                     <div class="col-sm-4">
                         <div class="post-card">
                             <div class="post-thumbnail">
-                                <img src="dog.jpg">
+                                <img src="images/dog.jpg">
                             </div>
                             <div class="post-content">
                                 <a href="#" class="category-button">PolyU Life</a>
-                                <h3 class="post-title"><a href="singlePost.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h3>
+                                <h3 class="post-title"><a href="singlePost.php">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h3>
                                 <div class="post-author">
                                     <h5>By: Jane Doe</h5>
                                     <small>16 March, 2023 - 13:52</small>
@@ -81,11 +81,11 @@
                     <div class="col-sm-4">
                         <div class="post-card">
                             <div class="post-thumbnail">
-                                <img src="dog.jpg">
+                                <img src="images/dog.jpg">
                             </div>
                             <div class="post-content">
                                 <a href="#" class="category-button">PolyU Life</a>
-                                <h3 class="post-title"><a href="singlePost.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h3>
+                                <h3 class="post-title"><a href="singlePost.php">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h3>
                                 <div class="post-author">
                                     <h5>By: Jane Doe</h5>
                                     <small>16 March, 2023 - 13:52</small>
@@ -111,6 +111,6 @@
         </div>
     </footer>
     <!---->
-
+<script src="script.js"></script>
 </body>
 </html>

@@ -18,17 +18,17 @@
     <div class="container-fluid" style="margin-top:100px">
         <div class="postForm">
             <div class="row justify-content-center">
-                <div class="col-sm-4">
-                    <a href="index.html" id="closeButton"><i class="material-icons md-24">close</i></a>
+                <div class="col-sm-6">
+                    <a href="index.php" id="closeButton"><i class="material-icons md-24">close</i></a>
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-sm-4" id="createTitle">
+                <div class="col-sm-6" id="createTitle">
                     <h2>Create a Post</h2>
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     <form action="#.php" class="was-validated">
                         <div class="form-group">
                             <h6>Category:</h6>
@@ -55,5 +55,6 @@
             </div>
         </div>
     </div>
+<script src="script.js"></script>
 </body>
 </html>
