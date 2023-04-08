@@ -25,14 +25,11 @@ $sql_query = "INSERT INTO users (username, password) VALUES ('$username', '$pass
 
 echo "sql is ready";
 
-
 if (mysqli_query($conn, $sql_query) == true) {
     echo "New record created successfully";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 mysqli_close($conn);
-
-
 
 ?>

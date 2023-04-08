@@ -14,7 +14,7 @@
 
 </head>
 
-<body>
+<body id = "mainpage">
     <!--Bootstrap navigation bar-->
     <nav class="navbar fixed-top navbar navbar-custom">
         <a class="navbar-brand" href="index.php">
@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <a class="btn" href="createPost.php" role="button" data-toggle="tooltip" data-placement="bottom" title="Create post"><i class="material-icons md-24">add_box</i></a>
-                <a class="btn" href="signup.php" role="button" data-toggle="tooltip" data-placement="bottom" title="User"><i class="material-icons md-24">account_circle</i></a>
+                <a class="btn" id = "usericon" href="signup.php" role="button" data-toggle="tooltip" data-placement="bottom" title="User"><i class="material-icons md-24">account_circle</i></a> <!--Replace i in js-->
             </div>
         </div>
     </nav>
@@ -47,7 +47,23 @@
             <div class="col-sm-12" id="postSession">
                 <div class="row">
                     <div class="col-sm-4">
-                        <div class="post-card">
+                        <div class="post-card" id = "most_popular">
+                            <div class="post-thumbnail">
+                                <img src="images/dog.jpg">
+                            </div>
+                            <div class="post-content">
+                                <a href="#" class="category-button">Most Popular</a>
+                                <h3 class="post-title"><a href="singlePost.php">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h3>
+                                <div class="post-author">
+                                    <h5>By: Jane Doe</h5>
+                                    <small>16 March, 2023 - 13:52</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="post-card" id = "polyu_life">
                             <div class="post-thumbnail">
                                 <img src="images/dog.jpg">
                             </div>
@@ -62,29 +78,13 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-4">
+                    <div class="col-sm-4" id = "faculty_news">
                         <div class="post-card">
                             <div class="post-thumbnail">
                                 <img src="images/dog.jpg">
                             </div>
                             <div class="post-content">
-                                <a href="#" class="category-button">PolyU Life</a>
-                                <h3 class="post-title"><a href="singlePost.php">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h3>
-                                <div class="post-author">
-                                    <h5>By: Jane Doe</h5>
-                                    <small>16 March, 2023 - 13:52</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4">
-                        <div class="post-card">
-                            <div class="post-thumbnail">
-                                <img src="images/dog.jpg">
-                            </div>
-                            <div class="post-content">
-                                <a href="#" class="category-button">PolyU Life</a>
+                                <a href="#" class="category-button">Faculty News</a>
                                 <h3 class="post-title"><a href="singlePost.php">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h3>
                                 <div class="post-author">
                                     <h5>By: Jane Doe</h5>
@@ -111,6 +111,6 @@
         </div>
     </footer>
     <!---->
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

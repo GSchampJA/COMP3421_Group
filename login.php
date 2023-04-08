@@ -32,7 +32,13 @@
            $sql = "SELECT * FROM user WHERE Username = '$name' && Password = '$password'";
            $result = mysqli_query($conn, $sql);
         if(mysqli_num_rows($result) > 0){
-           echo "<p>OK</p>";
+           echo "<p>OK, 2 seconds to home page</p>";
+           echo "<script>
+                setTimeout(function(){
+                    window.location.href = 'index.php'; 
+                },2000);
+                const data = '<?php echo $name; ?>';
+            </script>";
         }
         else{
            echo "<p>Incorrect user name or password!</p>";
