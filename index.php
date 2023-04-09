@@ -1,3 +1,7 @@
+<?php 
+    include 'DBconnection.php';
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,50 +51,137 @@
             <div class="col-sm-12" id="postSession">
                 <div class="row">
                     <div class="col-sm-4">
-                        <div class="post-card" id = "most_popular">
-                            <div class="post-thumbnail">
-                                <img src="images/dog.jpg">
-                            </div>
-                            <div class="post-content">
-                                <a href="#" class="category-button">Most Popular</a>
-                                <h3 class="post-title"><a href="singlePost.php">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h3>
-                                <div class="post-author">
-                                    <h5>By: Jane Doe</h5>
-                                    <small>16 March, 2023 - 13:52</small>
+                        <div class="vstack gap-3">
+                        <?php
+                            $sql = "SELECT * FROM post_record";
+                            $res = mysqli_query($conn, $sql);
+                            $count_row = $res -> fetch_assoc();
+                            if($count_row>0){
+                                while($row=$res->fetch_assoc()){
+                                    
+                                    ?>
+                                        <div class="post-card" id = "most_popular">
+                                            <div class="post-thumbnail">
+                                                <img src="images/dog.jpg">
+                                            </div>
+                                            <div class="post-content">
+                                                <a href="#" class="category-button most-popular"><?php echo $row["Posttype"]?></a>
+                                                <h3 class="post-title"><a href="singlePost.php"><?php echo $row["Postcontent"] ?>
+                                                </a></h3>
+                                                <div class="post-author">
+                                                    <h5><?php echo $row["Postname"] ?></h5>
+                                                    <small><?php echo $row["Posttime"] ?></small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php 
+                                    
+                                }
+                            }
+                        ?>
+                            <!-- <div class="post-card" id = "most_popular">
+                                <div class="post-thumbnail">
+                                    <img src="images/dog.jpg">
                                 </div>
-                            </div>
+                                <div class="post-content">
+                                    <a href="#" class="category-button most-popular">Most Popular</a>
+                                    <h3 class="post-title"><a href="singlePost.php"><?php  ?>
+                                    </a></h3>
+                                    <div class="post-author">
+                                        <h5>By: Jane Doe</h5>
+                                        <small>16 March, 2023 - 13:52</small>
+                                    </div>
+                                </div>
+                            </div> -->
                         </div>
                     </div>
 
                     <div class="col-sm-4">
-                        <div class="post-card" id = "polyu_life">
-                            <div class="post-thumbnail">
-                                <img src="images/dog.jpg">
-                            </div>
-                            <div class="post-content">
-                                <a href="#" class="category-button">PolyU Life</a>
-                                <h3 class="post-title"><a href="singlePost.php">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h3>
-                                <div class="post-author">
-                                    <h5>By: Jane Doe</h5>
-                                    <small>16 March, 2023 - 13:52</small>
+                        <div class="vstack gap-3">
+                        <?php
+                            $sql = "SELECT * FROM post_record";
+                            $res = mysqli_query($conn, $sql);
+                            $count_row = $res -> fetch_assoc();
+                            if($count_row>0){
+                                while($row=$res->fetch_assoc()){
+                                    ?>
+                                        <div class="post-card" id = "most_popular">
+                                            <div class="post-thumbnail">
+                                                <img src="images/dog.jpg">
+                                            </div>
+                                            <div class="post-content">
+                                                <a href="#" class="category-button most-popular"><?php echo $row["Posttype"]?></a>
+                                                <h3 class="post-title"><a href="singlePost.php"><?php echo $row["Postcontent"] ?>
+                                                </a></h3>
+                                                <div class="post-author">
+                                                    <h5><?php echo $row["Postname"] ?></h5>
+                                                    <small><?php echo $row["Posttime"] ?></small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php 
+                                    
+                                }
+                            }
+                        ?>
+                            <!-- <div class="post-card" id = "most_popular">
+                                <div class="post-thumbnail">
+                                    <img src="images/dog.jpg">
                                 </div>
-                            </div>
+                                <div class="post-content">
+                                    <a href="#" class="category-button most-popular">Most Popular</a>
+                                    <h3 class="post-title"><a href="singlePost.php"><?php  ?>
+                                    </a></h3>
+                                    <div class="post-author">
+                                        <h5>By: Jane Doe</h5>
+                                        <small>16 March, 2023 - 13:52</small>
+                                    </div>
+                                </div>
+                            </div> -->
                         </div>
                     </div>
-
-                    <div class="col-sm-4" id = "faculty_news">
-                        <div class="post-card">
-                            <div class="post-thumbnail">
-                                <img src="images/dog.jpg">
-                            </div>
-                            <div class="post-content">
-                                <a href="#" class="category-button">Faculty News</a>
-                                <h3 class="post-title"><a href="singlePost.php">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h3>
-                                <div class="post-author">
-                                    <h5>By: Jane Doe</h5>
-                                    <small>16 March, 2023 - 13:52</small>
+                    <div class="col-sm-4">
+                        <div class="vstack gap-3">
+                        <?php
+                            $sql = "SELECT * FROM post_record";
+                            $res = mysqli_query($conn, $sql);
+                            $count_row = $res -> fetch_assoc();
+                            if($count_row>0){
+                                while($row=$res->fetch_assoc()){
+                                    ?>
+                                        <div class="post-card" id = "most_popular">
+                                            <div class="post-thumbnail">
+                                                <img src="images/dog.jpg">
+                                            </div>
+                                            <div class="post-content">
+                                                <a href="#" class="category-button most-popular"><?php echo $row["Posttype"]?></a>
+                                                <h3 class="post-title"><a href="singlePost.php"><?php echo $row["Postcontent"] ?>
+                                                </a></h3>
+                                                <div class="post-author">
+                                                    <h5><?php echo $row["Postname"] ?></h5>
+                                                    <small><?php echo $row["Posttime"] ?></small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php 
+                                    
+                                }
+                            }
+                        ?>
+                            <!-- <div class="post-card" id = "most_popular">
+                                <div class="post-thumbnail">
+                                    <img src="images/dog.jpg">
                                 </div>
-                            </div>
+                                <div class="post-content">
+                                    <a href="#" class="category-button most-popular">Most Popular</a>
+                                    <h3 class="post-title"><a href="singlePost.php"><?php  ?>
+                                    </a></h3>
+                                    <div class="post-author">
+                                        <h5>By: Jane Doe</h5>
+                                        <small>16 March, 2023 - 13:52</small>
+                                    </div>
+                                </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>

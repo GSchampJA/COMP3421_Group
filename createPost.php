@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿<?php 
+    include 'DBconnection.php';
+?>
+
+<!DOCTYPE html>
 <html>
 <head>
     <title>Create a post</title>

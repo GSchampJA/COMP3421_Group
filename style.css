@@ -12,6 +12,10 @@
     font-size: 24px;
 }
 
+.body {
+    overflow-y: auto;
+}
+
 
 /* =========index.html========= */
 
@@ -71,8 +75,25 @@
     transition: filter 500ms ease;
 }
 
-.category-button {
+.category-button.most-popular {
     background-color: var(--color-darknavyblue);
+    color: var(--color-skyblue);
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+}
+
+
+.category-button.polyu-life {
+    background-color: #3D59AB;
+    color: var(--color-skyblue);
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+}
+
+.category-button.fac-news {
+    background-color: #4682B4;
     color: var(--color-skyblue);
     display: inline-block;
     padding: 0.5rem 1rem;
@@ -160,10 +181,6 @@ footer {
 .Herelogin:link, .Herelogin:hover {
     text-decoration: none;
 }
-
-
-
-
 
 /* =========login.php========= */
 .loginbox {
