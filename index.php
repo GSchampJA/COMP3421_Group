@@ -55,44 +55,32 @@
                         <?php
                             $sql = "SELECT * FROM post_record";
                             $res = mysqli_query($conn, $sql);
-                            $count_row = $res -> fetch_assoc();
-                            if($count_row>0){
-                                while($row=$res->fetch_assoc()){
-                                    
-                                    ?>
-                                        <div class="post-card" id = "most_popular">
-                                            <div class="post-thumbnail">
-                                                <img src="images/dog.jpg">
-                                            </div>
-                                            <div class="post-content">
-                                                <a href="#" class="category-button most-popular"><?php echo $row["Posttype"]?></a>
-                                                <h3 class="post-title"><a href="singlePost.php"><?php echo $row["Postcontent"] ?>
-                                                </a></h3>
-                                                <div class="post-author">
-                                                    <h5><?php echo $row["Postname"] ?></h5>
-                                                    <small><?php echo $row["Posttime"] ?></small>
-                                                </div>
+                            $count_row = mysqli_num_rows($res);
+                            for($x = 0; $x < $count_row; $x++){
+                                $row = $res -> fetch_assoc();
+                                // find out the post of "PolyU Life"
+                                if($row["Posttype"]=="PolyU Life"){
+                                ?>
+                                    <!-- print out the post -->
+                                    <div class="post-card" id = "most_popular">
+                                        <div class="post-thumbnail">
+                                            <img src="images/dog.jpg">
+                                        </div>
+                                        <div class="post-content">
+                                            <a href="#" class="category-button most-popular"><?php echo $row["Posttype"]?></a>
+                                            <h3 class="post-title"><a href="singlePost.php"><?php echo $row["Postcontent"] ?>
+                                            </a></h3>
+                                            <div class="post-author">
+                                                <h5><?php echo $row["Postname"] ?></h5>
+                                                <small><?php echo $row["Posttime"] ?></small>
                                             </div>
                                         </div>
-                                    <?php 
-                                    
-                                }
-                            }
-                        ?>
-                            <!-- <div class="post-card" id = "most_popular">
-                                <div class="post-thumbnail">
-                                    <img src="images/dog.jpg">
-                                </div>
-                                <div class="post-content">
-                                    <a href="#" class="category-button most-popular">Most Popular</a>
-                                    <h3 class="post-title"><a href="singlePost.php"><?php  ?>
-                                    </a></h3>
-                                    <div class="post-author">
-                                        <h5>By: Jane Doe</h5>
-                                        <small>16 March, 2023 - 13:52</small>
                                     </div>
-                                </div>
-                            </div> -->
+                                <?php 
+                                }                 
+                            }
+                            
+                        ?>
                         </div>
                     </div>
 
@@ -101,43 +89,32 @@
                         <?php
                             $sql = "SELECT * FROM post_record";
                             $res = mysqli_query($conn, $sql);
-                            $count_row = $res -> fetch_assoc();
-                            if($count_row>0){
-                                while($row=$res->fetch_assoc()){
+                            $count_row = mysqli_num_rows($res);
+                            for($x = 0; $x < $count_row; $x++){
+                                $row = $res -> fetch_assoc();
+                                // find out the post of "PolyU Life"
+                                if($row["Posttype"]=="Most Popular"){
                                     ?>
-                                        <div class="post-card" id = "most_popular">
-                                            <div class="post-thumbnail">
-                                                <img src="images/dog.jpg">
-                                            </div>
-                                            <div class="post-content">
-                                                <a href="#" class="category-button most-popular"><?php echo $row["Posttype"]?></a>
-                                                <h3 class="post-title"><a href="singlePost.php"><?php echo $row["Postcontent"] ?>
-                                                </a></h3>
-                                                <div class="post-author">
-                                                    <h5><?php echo $row["Postname"] ?></h5>
-                                                    <small><?php echo $row["Posttime"] ?></small>
-                                                </div>
+                                    <!-- print out the post -->
+                                    <div class="post-card" id = "most_popular">
+                                        <div class="post-thumbnail">
+                                            <img src="images/dog.jpg">
+                                        </div>
+                                        <div class="post-content">
+                                            <a href="#" class="category-button most-popular"><?php echo $row["Posttype"]?></a>
+                                            <h3 class="post-title"><a href="singlePost.php"><?php echo $row["Postcontent"] ?>
+                                            </a></h3>
+                                            <div class="post-author">
+                                                <h5><?php echo $row["Postname"] ?></h5>
+                                                <small><?php echo $row["Posttime"] ?></small>
                                             </div>
                                         </div>
-                                    <?php 
-                                    
+                                    </div>
+                                <?php 
                                 }
                             }
+                            
                         ?>
-                            <!-- <div class="post-card" id = "most_popular">
-                                <div class="post-thumbnail">
-                                    <img src="images/dog.jpg">
-                                </div>
-                                <div class="post-content">
-                                    <a href="#" class="category-button most-popular">Most Popular</a>
-                                    <h3 class="post-title"><a href="singlePost.php"><?php  ?>
-                                    </a></h3>
-                                    <div class="post-author">
-                                        <h5>By: Jane Doe</h5>
-                                        <small>16 March, 2023 - 13:52</small>
-                                    </div>
-                                </div>
-                            </div> -->
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -145,28 +122,30 @@
                         <?php
                             $sql = "SELECT * FROM post_record";
                             $res = mysqli_query($conn, $sql);
-                            $count_row = $res -> fetch_assoc();
-                            if($count_row>0){
-                                while($row=$res->fetch_assoc()){
+                            $count_row = mysqli_num_rows($res);
+                            for($x = 0; $x < $count_row; $x++){
+                                $row = $res -> fetch_assoc();
+                                // find out the post of "PolyU Life"
+                                if($row["Posttype"]=="Faculty News"){
                                     ?>
-                                        <div class="post-card" id = "most_popular">
-                                            <div class="post-thumbnail">
-                                                <img src="images/dog.jpg">
-                                            </div>
-                                            <div class="post-content">
-                                                <a href="#" class="category-button most-popular"><?php echo $row["Posttype"]?></a>
-                                                <h3 class="post-title"><a href="singlePost.php"><?php echo $row["Postcontent"] ?>
-                                                </a></h3>
-                                                <div class="post-author">
-                                                    <h5><?php echo $row["Postname"] ?></h5>
-                                                    <small><?php echo $row["Posttime"] ?></small>
-                                                </div>
+                                    <div class="post-card" id = "most_popular">
+                                        <div class="post-thumbnail">
+                                            <img src="images/dog.jpg">
+                                        </div>
+                                        <div class="post-content">
+                                            <a href="#" class="category-button most-popular"><?php echo $row["Posttype"]?></a>
+                                            <h3 class="post-title"><a href="singlePost.php"><?php echo $row["Postcontent"] ?>
+                                            </a></h3>
+                                            <div class="post-author">
+                                                <h5><?php echo $row["Postname"] ?></h5>
+                                                <small><?php echo $row["Posttime"] ?></small>
                                             </div>
                                         </div>
-                                    <?php 
-                                    
+                                    </div>
+                                <?php 
                                 }
                             }
+                            
                         ?>
                             <!-- <div class="post-card" id = "most_popular">
                                 <div class="post-thumbnail">
