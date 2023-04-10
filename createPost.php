@@ -1,5 +1,25 @@
-﻿<?php 
-    include 'DBconnection.php';
+﻿<?php
+include 'DBconnection.php';
+
+if(isset($_POST['publish'])){
+    $findLastRecordSql = "SELECT * FROM post_record ORDER BY PostID DESC LIMIT 1";
+    $lastRecord = mysqli_query($conn, $findLastRecordSql);
+    if ($lastRecord->num_rows > 0) {while($row = $lastRecord->fetch_assoc()) {
+        $newPostID = $row["PostID"] + 1;
+    }
+    $postType = $_POST["postType"];
+    $postTitle = $_POST["postTitle"];
+    $postBody = $_POST["postBody"];
+    $timestamp = date("Y-m-d H:i:s");
+
+
+    $userID = 00001; #id of user who creates the post, need login
+
+    $insertSql = "INSERT INTO post_record VALUES ($newPostID, '$postType', '$postTitle','$postBody',$timestamp,$userID)"; #lacks image
+    mysqli_query($conn,$insertSql);
+    header("Location:index.php");
+}
+}
 ?>
 
 <!DOCTYPE html>
@@ -33,27 +53,27 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-sm-6">
-                    <form action="#.php" class="was-validated">
+                    <form action="createPost.php" class="was-validated">
                         <div class="form-group">
                             <h6>Category:</h6>
-                            <select class="custom-select">
-                                <option value="1">PolyU Life</option>
-                                <option value="2">Faculty News</option>
+                            <select class="custom-select" name="postType">
+                                <option value="PolyU Life">PolyU Life</option>
+                                <option value="Faculty News">Faculty News</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <h6>Title:</h6>
-                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Input here..." required>
+                            <input type="text" class="form-control" name="postTitle" placeholder="Input here..." required>
                         </div>
                         <div class="form-group">
                             <h6>Body:</h6>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Input here..." required></textarea>
+                            <textarea class="form-control" name="postBody" rows="4" placeholder="Input here..." required></textarea>
                         </div>
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" id="customFile">
                             <label class="custom-file-label" for="customFile"><i class="material-icons">add_a_photo</i> Add photo...</label>
                         </div>
-                        <button type="submit" class="btn btn-secondary">Publish</button>
+                        <button type="submit" class="btn btn-secondary" name="publish">Publish</button>
                     </form>
                 </div>
             </div>
