@@ -32,8 +32,6 @@
                         Posts
                     </button>
                     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                        <button class="dropdown-item" type="button">All</button>
-                        <button class="dropdown-item" type="button">Most Popular</button>
                         <button class="dropdown-item" type="button">PolyU Life</button>
                         <button class="dropdown-item" type="button">Faculty News</button>
                     </div>
@@ -50,7 +48,7 @@
         <div class="row">
             <div class="col-sm-12" id="postSession">
                 <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <div class="vstack gap-3">
                         <?php
                             $sql = "SELECT * FROM post_record";
@@ -63,10 +61,7 @@
                                 ?>
                                     <!-- print out the post -->
                                     <div class="post-card" id = "most_popular">
-                                        <div class="post-thumbnail">
-                                            <img src="images/dog.jpg">
-                                        </div>
-                                        <div class="post-content">
+                                        <div class="post-content" style="border: 0.5rem solid var(--color-navyblue);border-radius: 15px; margin-bottom: 1rem; padding:1rem;">
                                             <a href="#" class="category-button most-popular"><?php echo $row["Posttype"]?></a>
                                             <h3 class="post-title"><a href="singlePost.php"><?php echo $row["Postcontent"] ?>
                                             </a></h3>
@@ -84,40 +79,8 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-4">
-                        <div class="vstack gap-3">
-                        <?php
-                            $sql = "SELECT * FROM post_record";
-                            $res = mysqli_query($conn, $sql);
-                            $count_row = mysqli_num_rows($res);
-                            for($x = 0; $x < $count_row; $x++){
-                                $row = $res -> fetch_assoc();
-                                // find out the post of "PolyU Life"
-                                if($row["Posttype"]=="Most Popular"){
-                                    ?>
-                                    <!-- print out the post -->
-                                    <div class="post-card" id = "most_popular">
-                                        <div class="post-thumbnail">
-                                            <img src="images/dog.jpg">
-                                        </div>
-                                        <div class="post-content">
-                                            <a href="#" class="category-button most-popular"><?php echo $row["Posttype"]?></a>
-                                            <h3 class="post-title"><a href="singlePost.php"><?php echo $row["Postcontent"] ?>
-                                            </a></h3>
-                                            <div class="post-author">
-                                                <h5><?php echo $row["Postname"] ?></h5>
-                                                <small><?php echo $row["Posttime"] ?></small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php 
-                                }
-                            }
-                            
-                        ?>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
+
+                    <div class="col-sm-6">
                         <div class="vstack gap-3">
                         <?php
                             $sql = "SELECT * FROM post_record";
@@ -129,10 +92,7 @@
                                 if($row["Posttype"]=="Faculty News"){
                                     ?>
                                     <div class="post-card" id = "most_popular">
-                                        <div class="post-thumbnail">
-                                            <img src="images/dog.jpg">
-                                        </div>
-                                        <div class="post-content">
+                                        <div class="post-content" style="border: 0.5rem solid var(--color-navyblue);border-radius: 15px; margin-bottom: 1rem; padding:1rem;">
                                             <a href="#" class="category-button most-popular"><?php echo $row["Posttype"]?></a>
                                             <h3 class="post-title"><a href="singlePost.php"><?php echo $row["Postcontent"] ?>
                                             </a></h3>
@@ -148,9 +108,6 @@
                             
                         ?>
                             <!-- <div class="post-card" id = "most_popular">
-                                <div class="post-thumbnail">
-                                    <img src="images/dog.jpg">
-                                </div>
                                 <div class="post-content">
                                     <a href="#" class="category-button most-popular">Most Popular</a>
                                     <h3 class="post-title"><a href="singlePost.php"><?php  ?>

@@ -58,21 +58,12 @@
 }
 
 /* -------Post------- */
-.post-thumbnail {
+
+.post-content {
     border-radius: 15px;
     border: 0.5rem solid var(--color-navyblue);
     overflow: hidden;
     margin-bottom: 1rem;
-}
-
-.post-thumbnail img {
-    max-width: 100%;
-    height: auto;
-}
-
-.post-card:hover .post-thumbnail img {
-    filter: saturate(1.5);
-    transition: filter 500ms ease;
 }
 
 .category-button.most-popular {
@@ -82,7 +73,6 @@
     padding: 0.5rem 1rem;
     font-weight: 500;
 }
-
 
 .category-button.polyu-life {
     background-color: #3D59AB;
@@ -168,9 +158,6 @@ footer {
     text-align: center;
 }
 
-.postForm .custom-file {
-    padding-bottom: 70px;
-}
 
 /* =========singlePost.html========= */
 
