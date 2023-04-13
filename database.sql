@@ -2,6 +2,7 @@
 -- DROP TABLE `access_record`;
 -- DROP TABLE `post_record`;
 -- DROP TABLE `comment_record`;
+CREATE DATABASE comp3421_project;
 
 CREATE TABLE `user`(UserID int NOT NUll, Username VARCHAR (100) NOT NULL, Password VARCHAR(100) NOT NULL, PRIMARY KEY(UserID));
 
