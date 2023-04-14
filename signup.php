@@ -1,28 +1,5 @@
 <?php
-/*
-// Start the session (if not already started)
-session_start();
-
-// Check if the form has been submitted
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Get the form data
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    // Check if the username and password are valid (in this example, just hardcoding a single user)
-    if ($username == 'admin' && $password == 'password') {
-        // Login successful, store the user ID in the session
-        $_SESSION['user_id'] = 1;
-
-        // Redirect to the dashboard page
-        header('Location: dashboard.php');
-        exit;
-    } else {
-        // Login failed, display an error message
-        $error = 'Invalid username or password';
-    }
-}
-*/
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="postForm">
             <div class="row justify-content-center">
                 <div class="col-sm-4">
-                    <a href="index.php" id="closeButton"><i class="material-icons md-24">close</i></a>
+                    <a href="logout.php" id="closeButton"><i class="material-icons md-24">close</i></a>
                 </div>
             </div>
             <div class="row justify-content-center">

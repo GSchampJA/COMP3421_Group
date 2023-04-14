@@ -16,7 +16,3 @@ function reloadelements_index(name) {
     console.log(usericon);
     usericon.innerText = name;
 }
-
-function setattr() {
-    
-}

@@ -1,6 +1,9 @@
-<?php
+﻿<?php
     session_start();
     include 'DBconnection.php';
+    if(!isset($_SESSION['PostID'])){
+        $_SESSION['PostID'] = $_GET['PostID'];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -30,33 +33,31 @@
         </a>
         <div class="navBar">
             <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                <div class="btn-group" role="group">
-                    <button id="btnGroupDrop1" type="button" class="btn dropdown-toggle" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        Posts
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                        <button class="dropdown-item" type="button">All</button>
-                        <button class="dropdown-item" type="button">Most Popular</button>
-                        <button class="dropdown-item" type="button">PolyU Life</button>
-                        <button class="dropdown-item" type="button">Faculty News</button>
-                    </div>
-                </div>
-                <a class="btn" href="createPost.php" role="button" data-toggle="tooltip" data-placement="bottom"
-                    title="Create post"><i class="material-icons md-24">add_box</i></a>
-                <a class="btn" href="#" role="button" data-toggle="tooltip" data-placement="bottom" title="User"><i
-                        class="material-icons md-24">account_circle</i></a>
+                    <a class="btn" href="logout.php" role="button" data-toggle="tooltip" data-placement="bottom">Logout</a>
+                    <a class="btn" href="createPost.php" role="button" data-toggle="tooltip" data-placement="bottom" title="Create post"><i class="material-icons md-24">add_box</i></a>
+                    
+                <a class="btn" id = "usericon" 
+                <?php if($_SESSION['loggedin']!=true){
+                    ?> 
+                        href="signup.php" 
+                        <?php 
+                    } 
+                    else { 
+                    ?> href="user_info.php" 
+                    <?php 
+                    } 
+                ?>role="button" data-toggle="tooltip" data-placement="bottom" title="User"><i class="material-icons md-24">account_circle</i></a>
+
+                <!--Replace i in js-->
             </div>
         </div>
     </nav>
     <!---->
 
-
     <div class="container-fluid" style="margin-top:90px">
         <div class="row">
             <?php
-            $postid = $_GET['PostID'];
-            $sql = "SELECT * FROM post_record WHERE PostID = $postid";
+            $sql = "SELECT * FROM post_record WHERE PostID = '{$_SESSION['PostID']}'";
             $res = mysqli_query($conn, $sql);
             $row = $res->fetch_assoc();
             $userid = $row["UserID"];
@@ -90,15 +91,52 @@
         </div>
 
         <div>
-            <h1>Comment: </h1>
-            <a class="btn" id="addcomment" href="#.php" role="button" data-toggle="tooltip" data-placement="bottom"
-                title="User"><i class="material-icons md-24">add_comment</i></a>
+            <h2>Add Comment:</h2><a class="btn" id="showModal" data-toggle="modal" data-target="#noticeModal" role="button" data-toggle="tooltip" data-placement="bottom" title="Create post"><i class="material-icons md-24">add_box</i></a>
+            <div class="modal fade" id="noticeModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="noticeModalLabel">Want to comment?</h5>
+                        <button type="button" id="hideModal" aria-label="Close" data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="singlePost.php" method="post" class="was-validated">
+                            <h6 class="model-subtitle">Content</h6>
+                            <input type="text" class="form-control" name="Commentconent" placeholder="Input here..." maxlength="40" required>
+                            <button type="submit" class="btn btn-secondary" name="publish">Publish</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php 
+            include 'DBconnection.php';
+            if(isset($_POST['publish'])){
+                $findLastRecordSql = "SELECT * FROM comment_record ORDER BY CommentID DESC LIMIT 1";
+                $lastRecord = mysqli_query($conn, $findLastRecordSql);
+                if ($lastRecord->num_rows > 0) {
+                    while($row = $lastRecord->fetch_assoc()) {
+                        $newCommentID = $row["CommentID"] + 1;
+                    }
+                    $Commentconent = $_POST["Commentconent"];
+                    $timestamp = date("Y-m-d H:i:s");
+                    $userID = $_SESSION['userid'];
+                    $insertSql = "INSERT INTO post_record VALUES ($newCommentID, '{$_SESSION['PostID']}', $UserID,'$Commentconent','$timestamp')";
+                    mysqli_query($conn,$insertSql);
+                }
+            } 
+        ?>
         </div>
 
         <div class="col-sm-4">
             <div class="vstack gap-3">
                 <?php
-                $commentsql = "SELECT * FROM comment_record WHERE PostID = $postid";
+                $commentsql = "SELECT * FROM comment_record WHERE PostID = '{$_SESSION['PostID']}'";
                 $commentquery = mysqli_query($conn, $commentsql);
                 if (mysqli_num_rows($commentquery) > 0) {
                     for ($c = 0; $c < mysqli_num_rows($commentquery); $c++) {
@@ -159,6 +197,14 @@
         </footer>
         <!---->
         <script src="script.js"></script>
+        <script src="script.js">
+            $('#showModal').modal('toggle'){
+                $('#myModal').modal('show');
+            }
+            $('#hideModal').modal('toggle'){
+                $('#myModal').modal('hide');
+            }
+    </script>
 </body>
 
 </html>

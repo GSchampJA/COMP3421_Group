@@ -1,6 +1,13 @@
 <?php 
     session_start();
+    if(!isset($_SESSION['loggedin'])){
+        $_SESSION['loggedin'] = false;
+    }
+    else{
+        $_SESSION['loggedin'] = true;
+    }
     include 'DBconnection.php';
+
     $sql = "SELECT * FROM user WHERE UserID = '{$_SESSION['userid']}'";
     $result = mysqli_query($conn, $sql);
 ?>
@@ -22,10 +29,15 @@
 </head>
 
 <body>
-    <?php
-        
-    ?>
-    <div ></div>
+    <?php $row = $result -> fetch_assoc(); ?>
+    <div class="card" id="most_popular">
+        <div class="card-body">
+            <div class="post-author">
+                <h6><?php echo $row["UserID"]?></h6>
+                <small><?php echo $row["Username"]?></small>
+            </div>
+        </div>
+    </div>
 
     <!--Page footer-->
     <footer>
