@@ -27,21 +27,13 @@
         </a>
         <div class="navBar">
             <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                <?php if($_SESSION['loggedin']==true){ ?>
-                    <a class="btn" href="logout.php" role="button" data-toggle="tooltip" data-placement="bottom">Logout</a>
-                <?php } ?>
+                <div class="btn-group" role="group">
+                    <button id="btnGroupDrop1" type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Posts
+                    </button>
+                </div>
                 <a class="btn" href="createPost.php" role="button" data-toggle="tooltip" data-placement="bottom" title="Create post"><i class="material-icons md-24">add_box</i></a>
-                <a class="btn" id = "usericon" 
-                <?php if($_SESSION['loggedin']!=true){
-                    ?> 
-                        href="signup.php" 
-                        <?php 
-                    } 
-                    else { 
-                    ?> href="user_info.php?UserID<?php echo $_SESSION["userid"];?>"  
-                    <?php 
-                    } 
-                ?>role="button" data-toggle="tooltip" data-placement="bottom" title="User"><i class="material-icons md-24">account_circle</i></a>
+                <a class="btn" id = "usericon" href="signup.php" role="button" data-toggle="tooltip" data-placement="bottom" title="User"><i class="material-icons md-24">account_circle</i></a>
 
                 <!--Replace i in js-->
             </div>
@@ -64,20 +56,7 @@
                                     $row = $res -> fetch_assoc();
                                     // find out the post of "PolyU Life"
                                     if($row["Posttype"]=="Most Popular"){
-                                        if($_SESSION['loggedin']!=true){
                                         ?>
-                                            <div class="card" id="most_popular">
-                                                <div class="card-body">
-                                                    <a href="#" class="card-title category-button most-popular"><?php echo $row["Posttype"]?></a>
-                                                    <h3 class="card-subtitle"><a href="singlePost.php?PostID=<?php echo $row["PostID"];?>"><?php echo $row["Posttitle"] ?>
-                                                    </a></h3>
-                                                    <div class="post-author">
-                                                        <h6>------------------------------</h6>
-                                                        <small>------------------------------</small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        <?php } else { ?>
                                             <div class="card" id="most_popular">
                                                 <div class="card-body">
                                                     <a href="#" class="card-title category-button most-popular"><?php echo $row["Posttype"]?></a>
@@ -89,8 +68,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        <?php
-                                        }
+                                        <?php 
                                     }
                                 } 
                             ?>
@@ -106,33 +84,20 @@
                                     $row = $res -> fetch_assoc();
                                     // find out the post of "PolyU Life"
                                     if($row["Posttype"]=="PolyU Life"){
-                                        if($_SESSION['loggedin']!=true){
                                         ?>
-                                            <div class="card" id="most_popular">
-                                                <div class="card-body">
-                                                    <a href="#" class="card-title category-button most-popular"><?php echo $row["Posttype"]?></a>
-                                                    <h3 class="card-subtitle"><a href="singlePost.php?PostID=<?php echo $row["PostID"];?>"><?php echo $row["Posttitle"] ?>
+                                        <!-- print out the post -->
+                                        <div class="card" id="most_popular">
+                                            <div class="card-body">
+                                                <a href="#" class="card-title category-button most-popular"><?php echo $row["Posttype"]?></a>
+                                                <h3 class="card-subtitle"><a href="singlePost.php?PostID=<?php echo $row["PostID"];?>"><?php echo $row["Posttitle"] ?>
                                                     </a></h3>
-                                                    <div class="post-author">
-                                                        <h6>------------------------------</h6>
-                                                        <small>------------------------------</small>
-                                                    </div>
+                                                <div class="post-author">
+                                                    <h6><?php echo $row["Postcontent"] ?></h6>
+                                                    <small><?php echo $row["Posttime"] ?></small>
                                                 </div>
                                             </div>
-                                        <?php } else { ?>
-                                            <div class="card" id="most_popular">
-                                                <div class="card-body">
-                                                    <a href="#" class="card-title category-button most-popular"><?php echo $row["Posttype"]?></a>
-                                                    <h3 class="card-subtitle"><a href="singlePost.php?PostID=<?php echo $row["PostID"];?>"><?php echo $row["Posttitle"] ?>
-                                                    </a></h3>
-                                                    <div class="post-author">
-                                                        <h6><?php echo $row["Postcontent"] ?></h6>
-                                                        <small><?php echo $row["Posttime"] ?></small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        <?php
-                                        }
+                                        </div>
+                                    <?php 
                                     }
                                 }
                             ?>
@@ -148,33 +113,20 @@
                                     $row = $res -> fetch_assoc();
                                     // find out the post of "PolyU Life"
                                     if($row["Posttype"]=="Faculty News"){
-                                        if($_SESSION['loggedin']!=true){
                                         ?>
-                                            <div class="card" id="most_popular">
-                                                <div class="card-body">
-                                                    <a href="#" class="card-title category-button most-popular"><?php echo $row["Posttype"]?></a>
-                                                    <h3 class="card-subtitle"><a href="singlePost.php?PostID=<?php echo $row["PostID"];?>"><?php echo $row["Posttitle"] ?>
+                                        <!-- print out the post -->
+                                        <div class="card" id="most_popular">
+                                            <div class="card-body">
+                                                <a href="#" class="card-title category-button most-popular"><?php echo $row["Posttype"]?></a>
+                                                <h3 class="card-subtitle"><a href="singlePost.php?PostID=<?php echo $row["PostID"];?>"><?php echo $row["Posttitle"] ?>
                                                     </a></h3>
-                                                    <div class="post-author">
-                                                        <h6>------------------------------</h6>
-                                                        <small>------------------------------</small>
-                                                    </div>
+                                                <div class="post-author">
+                                                    <h6><?php echo $row["Postcontent"] ?></h6>
+                                                    <small><?php echo $row["Posttime"] ?></small>
                                                 </div>
                                             </div>
-                                        <?php } else { ?>
-                                            <div class="card" id="most_popular">
-                                                <div class="card-body">
-                                                    <a href="#" class="card-title category-button most-popular"><?php echo $row["Posttype"]?></a>
-                                                    <h3 class="card-subtitle"><a href="singlePost.php?PostID=<?php echo $row["PostID"];?>"><?php echo $row["Posttitle"] ?>
-                                                    </a></h3>
-                                                    <div class="post-author">
-                                                        <h6><?php echo $row["Postcontent"] ?></h6>
-                                                        <small><?php echo $row["Posttime"] ?></small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        <?php
-                                        }
+                                        </div>
+                                    <?php 
                                     }
                                 }
                             ?>

@@ -1,9 +1,15 @@
-﻿<!DOCTYPE html>
+﻿<?php 
+    session_start();
+    include 'DBconnection.php';
+?>
+
+<!DOCTYPE html>
 <html>
 <head>
     <title>PolyU Forum</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 
     <!--Add Bootstrap framework into the HTML file-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
@@ -41,6 +47,7 @@
     </nav>
     <!---->
 
+
     <div class="container-fluid" style="margin-top:90px">
         <div class="row">
             <div class="col-sm-12">
@@ -50,9 +57,11 @@
                         <h5>By: Jane Doe</h5>
                         <small>16 March, 2023 - 13:52</small>
                     </div>
-                    <div class="single-post-thumbnail">
-                        <img src="dog.jpg">
-                    </div>
+                    <?php 
+                        $PostID = $_GET['PostID'];
+                        echo $PostID;
+                        echo $_SESSION['username'];
+                    ?>
                     <div class="single-post-paragraph">
                         <p class="single-post-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed dolor ut nisl pharetra aliquet at et sapien.Vestibulum non tempor elit. Quisque id feugiat leo, finibus mattis urna.Sed finibus, nulla in luctus pretium, felis nunc consectetur velit, et lacinia nisi enim sit amet nisl. Nunc lacinia magna sit amet massa posuere, eget maximus quam viverra. Pellentesque vulputate lacus eu elementum pharetra. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>

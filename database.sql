@@ -1,12 +1,11 @@
--- DROP TABLE `user`;
--- DROP TABLE `access_record`;
--- DROP TABLE `post_record`;
--- DROP TABLE `comment_record`;
-CREATE DATABASE comp3421_project;
+DROP TABLE `access_record`;
+DROP TABLE `comment_record`;
+DROP TABLE `post_record`;
+DROP TABLE `user`;
 
 CREATE TABLE `user`(UserID int NOT NUll, Username VARCHAR (100) NOT NULL, Password VARCHAR(100) NOT NULL, PRIMARY KEY(UserID));
 
-CREATE TABLE `post_record`(PostID int NOT NULL, Posttype TEXT (65535) NOT NULL, Postname TEXT (100) NOT NULL, Postcontent TEXT (65535) NOT NULL, Posttime TIMESTAMP NOT NULL, UserID int NOT NULL, FOREIGN KEY (UserID) REFERENCES user(UserID));
+CREATE TABLE `post_record`(PostID int NOT NULL, Posttype TEXT (65535) NOT NULL, Posttitle TEXT (30) NOT NULL, Postcontent TEXT (65535) NOT NULL, Posttime TIMESTAMP NOT NULL, UserID int NOT NULL, FOREIGN KEY (UserID) REFERENCES user(UserID));
 ALTER TABLE `post_record` ADD PRIMARY KEY (PostID);
 
 CREATE TABLE `access_record`(Accesstime TIMESTAMP NOT NULL, PostID int NOT NULL,FOREIGN KEY (PostID) REFERENCES post_record(PostID), UserID int NOT NUll, FOREIGN KEY (UserID) REFERENCES user(UserID));
@@ -31,10 +30,11 @@ INSERT INTO user VALUES (00013, 'Winnie', 'Winnie789-=');
 INSERT INTO user VALUES (00014, 'Gabriel', 'Gabriel101');
 
 -- table post record
-INSERT INTO post_record VALUES (00001, 'PolyU Life', 'Handsome guy Gabriel', 'Gabriel, the most handsome guy in comp department, trust me!', '2023-03-25 07:52:11', 00014);
-INSERT INTO post_record VALUES (00002, 'Faculty News', 'Winnie is getting Microsoft Azure Offer!!!', 'Congrats', '2023-03-25 09:30:55', 00005);
+INSERT INTO post_record VALUES (00001, 'PolyU Life', 'Handsome guy Gabriel', 'Gabriel, the most handsome guy in comp department, trust me!','2023-03-25 07:52:11', 00014);
+INSERT INTO post_record VALUES (00002, 'Faculty News', 'Winnie is getting Microsoft Azure Offer!!!', 'Congrats','2023-03-25 09:30:55', 00005);
 INSERT INTO post_record VALUES (00003, 'PolyU Life', 'I am getting 1.7 gpa', 'Who can carry me!!!!!!!', '2023-03-25 09:52:46', 00011);
 INSERT INTO post_record VALUES (00004, 'PolyU Life', 'Daniel Yu is nto having offer from microsoft', 'Can someone comfort me...', '2023-03-25 10:56:55', 00012);
+INSERT INTO post_record VALUES (00005, 'Most Popular', 'Daniel Yu is tall', 'DM me for gf', '2023-03-26 09:56:05', 00001);
 
 -- table access record 
 INSERT INTO access_record VALUES('2023-03-25 11:30:55', 4, 1);

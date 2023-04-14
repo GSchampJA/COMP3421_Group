@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <title>Login</title>
     <link rel="stylesheet" type=text/css href="style.css">
 </head>
@@ -26,28 +27,35 @@
 }
 </style>
 <body>
-    <script src="script.js"></script>   
     <div class="loginbox">
         <img src="images/loginlogo.png" class="icon">
         <?php
-            if(isset($_POST['login'])){
-                $name = mysqli_real_escape_string($conn, $_POST["username"]);
-                $password = $_POST["password"];
-                $sql = "SELECT * FROM user WHERE Username = '$name' && Password = '$password'";
-                $result = mysqli_query($conn, $sql);
+        include 'DBconnection.php';
+
+        if(isset($_POST['login'])){
+            $name = mysqli_real_escape_string($conn, $_POST["username"]);
+            $password = $_POST["password"];
+            $sql = "SELECT * FROM user WHERE Username = '$name' && Password = '$password'";
+            $result = mysqli_query($conn, $sql);
             if(mysqli_num_rows($result) > 0){
+                $row = $result -> fetch_assoc();
+                $_SESSION['username'] = $row["Username"];
+                $_SESSION['userid'] = $row["UserID"];
+                $_SESSION['loggedin'] = true;
+                echo "username".$_SESSION['username'];
+                echo "userid".$_SESSION['userid'];
                 echo "<p>OK, 2 seconds to home page</p>";
                 echo "<script>
                         setTimeout(function(){
                             window.location.href = 'index.php'; 
                         },2000);
+                        const data = '<?php echo $name; ';
                     </script>";
-                $_SESSION['username']=$name;
-                $_SESSION['loggedin']=true;
-            } else{
+            }
+            else{
                 echo "<p>Incorrect user name or password!</p>";
             }
-            }
+        }
         ?>
         <form action="login.php" method="post">
             <label for="username">Username:</label>
