@@ -1,5 +1,11 @@
 <?php 
     session_start();
+    if(isset($_SESSION['loggedin'])){
+        $_SESSION['loggedin']=true;
+    }
+    else{
+        $_SESSION['loggedin'] = false;
+    }
     include 'DBconnection.php';
 ?>
 
@@ -30,7 +36,11 @@
                 <?php if($_SESSION['loggedin']==true){ ?>
                     <a class="btn" href="logout.php" role="button" data-toggle="tooltip" data-placement="bottom">Logout</a>
                 <?php } ?>
-                <a class="btn" href="createPost.php" role="button" data-toggle="tooltip" data-placement="bottom" title="Create post"><i class="material-icons md-24">add_box</i></a>
+                <?php if($_SESSION['loggedin']==true){ ?>
+                    <a class="btn" href="createPost.php" role="button" data-toggle="tooltip" data-placement="bottom" title="Create post"><i class="material-icons md-24">add_box</i></a>
+                <?php }else{ ?>
+                    <a class="btn" id="showModal" data-toggle="modal" data-target="#noticeModal" role="button" data-toggle="tooltip" data-placement="bottom" title="Create post"><i class="material-icons md-24">add_box</i></a>
+                <?php } ?>
                 <a class="btn" id = "usericon" 
                 <?php if($_SESSION['loggedin']!=true){
                     ?> 
@@ -47,7 +57,29 @@
             </div>
         </div>
     </nav>
-    <!---->
+    
+    
+
+    <!-- Modal -->
+    <div class="modal fade" id="noticeModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="noticeModalLabel">Want to create a post?</h5>
+            <button type="button" id="hideModal" aria-label="Close" data-dismiss="modal">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <h6><a href="login.php">Login</a> to create post!</h6>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+        </div>
+    </div>
+    </div>
 
     <!--Posts-->
     <div class="container-fluid" style="margin-top:90px">
@@ -64,7 +96,7 @@
                                     $row = $res -> fetch_assoc();
                                     // find out the post of "PolyU Life"
                                     if($row["Posttype"]=="Most Popular"){
-                                        if($_SESSION['loggedin']!=true){
+                                        if($_SESSION['loggedin'] != true){
                                         ?>
                                             <div class="card" id="most_popular">
                                                 <div class="card-body">
@@ -199,5 +231,16 @@
     </footer>
     <!---->
     <script src="script.js"></script>
+    <script src="script.js">
+        $('#showModal').modal('toggle'){
+            $('#myModal').modal('show');
+        }
+        $('#hideModal').modal('toggle'){
+            $('#myModal').modal('hide');
+        }
+
+        
+    </script>
+    
 </body>
 </html>

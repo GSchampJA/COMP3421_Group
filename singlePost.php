@@ -1,4 +1,4 @@
-<?php 
+<?php
     session_start();
     include 'DBconnection.php';
 ?>
@@ -136,11 +136,6 @@
                         <h5>By: Jane Doe</h5>
                         <small>16 March, 2023 - 13:52</small>
                     </div>
-                    <?php 
-                        $PostID = $_GET['PostID'];
-                        echo $PostID;
-                        echo $_SESSION['username'];
-                    ?>
                     <div class="single-post-paragraph">
                         <p class="single-post-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed dolor ut nisl pharetra aliquet at et sapien.Vestibulum non tempor elit. Quisque id feugiat leo, finibus mattis urna.Sed finibus, nulla in luctus pretium, felis nunc consectetur velit, et lacinia nisi enim sit amet nisl. Nunc lacinia magna sit amet massa posuere, eget maximus quam viverra. Pellentesque vulputate lacus eu elementum pharetra. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>
