@@ -59,15 +59,6 @@
 
 /* -------Post------- */
 
-.post-content {
-    /*
-    border-radius: 15px;
-    border: 0.5rem solid var(--color-navyblue);
-    */
-    overflow: hidden;
-    margin-bottom: 1rem;
-}
-
 .category-button.most-popular {
     background-color: var(--color-darknavyblue);
     color: var(--color-skyblue);
@@ -97,23 +88,6 @@
     color: white;
 }
 
-.post-title a {
-    color: var(--color-lessdarknavyblue);
-}
-
-.post-title a:hover {
-    color: var(--color-steelgray);
-    text-decoration: none;
-}
-
-#postSession {
-    margin-bottom: 5rem;
-}
-
-.card{
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
 
 /* -------Footer------- */
 footer {
@@ -167,7 +141,32 @@ footer {
 
 
 /* =========singlePost.html========= */
+.singlepost-content {
+    
+    border-radius: 15px;
+    border: 0.5rem solid var(--color-navyblue);
+    
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
 
+.singlepost-title a {
+    color: var(--color-lessdarknavyblue);
+}
+
+.singlepost a:hover {
+    color: var(--color-steelgray);
+    text-decoration: none;
+}
+
+#postSession {
+    margin-bottom: 5rem;
+}
+
+.card{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
 
 
 

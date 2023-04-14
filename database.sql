@@ -1,7 +1,8 @@
-DROP TABLE `access_record`;
-DROP TABLE `comment_record`;
-DROP TABLE `post_record`;
-DROP TABLE `user`;
+-- if you are the second time to import the database, uncomment the following 4 lines of code
+-- DROP TABLE `access_record`;
+-- DROP TABLE `comment_record`;
+-- DROP TABLE `post_record`;
+-- DROP TABLE `user`;
 
 CREATE TABLE `user`(UserID int NOT NUll, Username VARCHAR (100) NOT NULL, Password VARCHAR(100) NOT NULL, PRIMARY KEY(UserID));
 

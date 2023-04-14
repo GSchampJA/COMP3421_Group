@@ -25,17 +25,41 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <!---->
+    <nav class="navbar fixed-top navbar navbar-custom">
+        <a class="navbar-brand" href="index.php">
+            <img src="images/icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            PolyU Forum
+        </a>
+        <div class="navBar">
+            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                    <a class="btn" href="logout.php" role="button" data-toggle="tooltip" data-placement="bottom">Logout</a>
+                    <a class="btn" href="createPost.php" role="button" data-toggle="tooltip" data-placement="bottom" title="Create post"><i class="material-icons md-24">add_box</i></a>
+                <a class="btn" id = "usericon" 
+                <?php if($_SESSION['loggedin']!=true){
+                    ?> 
+                        href="signup.php" 
+                        <?php 
+                    } 
+                    else { 
+                    ?> href="user_info.php" 
+                    <?php 
+                    } 
+                ?>role="button" data-toggle="tooltip" data-placement="bottom" title="User"><i class="material-icons md-24">account_circle</i></a>
+            </div>
+        </div>
+    </nav>
 
 </head>
 
 <body>
-    <?php $row = $result -> fetch_assoc(); ?>
-    <div class="card" id="most_popular">
-        <div class="card-body">
-            <div class="post-author">
-                <h6><?php echo $row["UserID"]?></h6>
-                <small><?php echo $row["Username"]?></small>
-            </div>
+   
+    <div class="container-fluid" style="margin-top:90px">
+        <div class="jumbotron">
+            <?php $row = $result -> fetch_assoc(); ?>
+            <h1 class="display-4">Hello, <?php echo $row["Username"]?></h1>
+            <p class="lead">User ID: <?php echo $row["UserID"]?></p>
+            <hr class="my-4">
+            <p>Nice to see you again!</p>
         </div>
     </div>
 

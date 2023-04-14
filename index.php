@@ -80,8 +80,19 @@
         </div>
     </div>
 
-    <!--Posts-->
     <div class="container-fluid" style="margin-top:90px">
+        <div class="jumbotron">
+        <h1 class="display-4">PolyU Biggest Forum</h1>
+        <p class="lead">This is a place for PolyU students. Hope you enjoy the time with PolyU, with others, and with us.</p>
+        <hr class="my-4">
+        <p>If you want to know more about PolyU, feel free to check out the homepage of PolyU.</p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="https://www.polyu.edu.hk/" role="button">Learn more</a>
+        </p>
+    </div>
+
+    <!--Posts-->
+    
         <div class="row">
             <div class="col-sm-12" id="postSession">
                 <div class="row">
@@ -228,8 +239,10 @@
             <small>Copyright &copy; COMP3421 PolyU Forum Group</small>
         </div>
     </footer>
-    <!---->
+    <!--  Javascript  -->
     <script src="script.js"></script>
+
+    <!--  jQuery  -->
     <script src="script.js">
         $('#showModal').modal('toggle'){
             $('#myModal').modal('show');
