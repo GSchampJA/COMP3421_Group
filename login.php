@@ -42,9 +42,7 @@
                 $_SESSION['username'] = $row["Username"];
                 $_SESSION['userid'] = $row["UserID"];
                 $_SESSION['loggedin'] = true;
-                echo "username".$_SESSION['username'];
-                echo "userid".$_SESSION['userid'];
-                echo "<p>OK, 2 seconds to home page</p>";
+                echo "<h2>Success! Redirecting to home page</h2>";
                 echo "<script>
                         setTimeout(function(){
                             window.location.href = 'index.php'; 

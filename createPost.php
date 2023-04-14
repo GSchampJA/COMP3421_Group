@@ -1,5 +1,12 @@
 ﻿<?php 
     session_start();
+    if(!isset($_SESSION['loggedin'])){
+        $_SESSION['loggedin'] = false;
+    }
+    else{
+        $_SESSION['loggedin'] = true;
+    }
+    
     include 'DBconnection.php';
 ?>
 
@@ -52,7 +59,7 @@
                             echo $newPostID;
 
 
-                            $userID = 00001; #id of user who creates the post, need login
+                            $userID = $_SESSION['userid']; #id of user who creates the post, need login
 
                             $insertSql = "INSERT INTO post_record VALUES ($newPostID, '$postType', '$postTitle','$postBody','$timestamp',$userID)";
                             mysqli_query($conn,$insertSql);
@@ -71,11 +78,11 @@
                         </div>
                         <div class="form-group">
                             <h6>Title:</h6>
-                            <input type="text" class="form-control" name="postTitle" placeholder="Input here..." maxlength="30" required>
+                            <input type="text" class="form-control" name="postTitle" placeholder="Input here..." maxlength="40" required>
                         </div>
                         <div class="form-group">
                             <h6>Body:</h6>
-                            <textarea class="form-control" name="postBody" rows="4" placeholder="Input here..." minlength="30" required></textarea>
+                            <textarea class="form-control" name="postBody" rows="4" placeholder="Input here..." minlength="20" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-secondary" name="publish">Publish</button>
                     </form>

@@ -1,10 +1,10 @@
-<?php 
+<?php
     session_start();
-    if(isset($_SESSION['loggedin'])){
-        $_SESSION['loggedin']=true;
+    if(!isset($_SESSION['loggedin'])){
+        $_SESSION['loggedin'] = false;
     }
     else{
-        $_SESSION['loggedin'] = false;
+        $_SESSION['loggedin'] = true;
     }
     include 'DBconnection.php';
 ?>
@@ -48,7 +48,7 @@
                         <?php 
                     } 
                     else { 
-                    ?> href="user_info.php?UserID<?php echo $_SESSION["userid"];?>"  
+                    ?> href="user_info.php" 
                     <?php 
                     } 
                 ?>role="button" data-toggle="tooltip" data-placement="bottom" title="User"><i class="material-icons md-24">account_circle</i></a>
@@ -62,23 +62,22 @@
 
     <!-- Modal -->
     <div class="modal fade" id="noticeModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="noticeModalLabel">Want to create a post?</h5>
-            <button type="button" id="hideModal" aria-label="Close" data-dismiss="modal">
-                <span aria-hidden="true">&times;</span>
-            </button>
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="noticeModalLabel">Want to create a post?</h5>
+                    <button type="button" id="hideModal" aria-label="Close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h6><a href="login.php">Login</a> to create post!</h6>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-            <h6><a href="login.php">Login</a> to create post!</h6>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-        </div>
-    </div>
     </div>
 
     <!--Posts-->
@@ -101,7 +100,7 @@
                                             <div class="card" id="most_popular">
                                                 <div class="card-body">
                                                     <a href="#" class="card-title category-button most-popular"><?php echo $row["Posttype"]?></a>
-                                                    <h3 class="card-subtitle"><a href="singlePost.php?PostID=<?php echo $row["PostID"];?>"><?php echo $row["Posttitle"] ?>
+                                                    <h3 class="card-subtitle"><a href="signup.php"><?php echo $row["Posttitle"] ?>
                                                     </a></h3>
                                                     <div class="post-author">
                                                         <h6>------------------------------</h6>
@@ -143,7 +142,7 @@
                                             <div class="card" id="most_popular">
                                                 <div class="card-body">
                                                     <a href="#" class="card-title category-button most-popular"><?php echo $row["Posttype"]?></a>
-                                                    <h3 class="card-subtitle"><a href="singlePost.php?PostID=<?php echo $row["PostID"];?>"><?php echo $row["Posttitle"] ?>
+                                                    <h3 class="card-subtitle"><a href="signup.php"><?php echo $row["Posttitle"] ?>
                                                     </a></h3>
                                                     <div class="post-author">
                                                         <h6>------------------------------</h6>
@@ -185,7 +184,7 @@
                                             <div class="card" id="most_popular">
                                                 <div class="card-body">
                                                     <a href="#" class="card-title category-button most-popular"><?php echo $row["Posttype"]?></a>
-                                                    <h3 class="card-subtitle"><a href="singlePost.php?PostID=<?php echo $row["PostID"];?>"><?php echo $row["Posttitle"] ?>
+                                                    <h3 class="card-subtitle"><a href="signup.php"><?php echo $row["Posttitle"] ?>
                                                     </a></h3>
                                                     <div class="post-author">
                                                         <h6>------------------------------</h6>
@@ -238,8 +237,6 @@
         $('#hideModal').modal('toggle'){
             $('#myModal').modal('hide');
         }
-
-        
     </script>
     
 </body>
