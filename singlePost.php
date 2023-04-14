@@ -1,12 +1,6 @@
-<<<<<<< Updated upstream
-﻿<?php 
+<?php 
     session_start();
     include 'DBconnection.php';
-=======
-﻿<?php
-session_start();
-include 'DBconnection.php';
->>>>>>> Stashed changes
 ?>
 
 <!DOCTYPE html>
