@@ -1,3 +1,5 @@
+var memoryofchanged;
+
 /*index.php*/
 var index = document.getElementById("mainpage");
 
@@ -7,14 +9,19 @@ var faculty = document.getElementById("faculty_news");
 
 var username = null;
 
-index.addEventListener("load", function() {
-    console.log("page is fully loaded");
-});
+var usericon = document.getElementById("usericon");//.document.getElementsByTagName("i");
+
+// index.addEventListener("load", function() {
+//     console.log("page is fully loaded");
+// });
 
 function reloadelements_index(name) {
-    var usericon = document.getElementById("usericon").document.getElementsByTagName("i");
-    console.log(usericon);
-    usericon.innerText = name;
+    console.log(usericon.getElementsByTagName("i"));
+    let welcome = "Welcome,";
+    var username = document.createElement("div");
+    username.innerHTML = welcome.concat(" ", name, "!");
+    //overlay.classList.add("box");
+    usericon.appendChild(username);
 }
 
 function setattr() {
